@@ -39,8 +39,8 @@
                     <asp:TextBox runat="server" ID="txtDireccion" class="form-control" />
                 </div>
                 <div class="col-4">
-                    <label for="txtCalle" class="form-label">Calle</label>
-                    <asp:TextBox runat="server" ID="txtCalle" class="form-control" />
+                    <label for="txtCiudad" class="form-label">Ciudad</label>
+                    <asp:TextBox runat="server" ID="txtCiudad" class="form-control" />
                 </div>
                 <div class="col-2">
                     <label for="txtCP" class="form-label">CP</label>
@@ -51,6 +51,10 @@
             <div class="form-check">
                 <asp:CheckBox ID="checkCondiciones" class="form-check-input" runat="server" />
                 <label for="checkCondiciones" class="form-check-label">Acepto los términos y condiones</label>
+            </div>
+            <br />
+            <div class="col-3">
+                <asp:Button Text="Participar!!!" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
             </div>
         </div>
     </div>

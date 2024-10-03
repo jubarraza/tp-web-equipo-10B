@@ -25,6 +25,6 @@ namespace Dominio
 
         public String Ciudad;
 
-        public string Cp;
+        public int Cp;
     }
 }
