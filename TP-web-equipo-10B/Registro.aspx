@@ -47,6 +47,11 @@
                     <asp:TextBox runat="server" ID="txtCP" class="form-control" />
                 </div>
             </div>
+            <br />
+            <div class="form-check">
+                <asp:CheckBox ID="checkCondiciones" class="form-check-input" runat="server" />
+                <label for="checkCondiciones" class="form-check-label">Acepto los términos y condiones</label>
+            </div>
         </div>
     </div>
 </asp:Content>
