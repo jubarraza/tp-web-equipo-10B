@@ -23,6 +23,9 @@
                 <div class="navbar-expand" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
+                            <a class="nav-link" href="Voucher.aspx">Ingresa tu Vaucher</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="Premios.aspx">Seleccion de Premios</a>
                         </li>
                         <li class="nav-item">
