@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
 
+
 namespace TP_web_equipo_10B
 {
     public partial class Registro : System.Web.UI.Page
@@ -21,6 +22,7 @@ namespace TP_web_equipo_10B
             try
             {
                 Cliente nuevo = new Cliente();
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
 
                 nuevo.Documento = txtDni.Text;
                 nuevo.Nombre = txtNombre.Text;
@@ -28,11 +30,14 @@ namespace TP_web_equipo_10B
                 nuevo.Email = txtEmail.Text;
                 nuevo.Direccion = txtDireccion.Text;
                 nuevo.Ciudad = txtCiudad.Text;
+                nuevo.Cp = int.Parse(txtCP.Text);
+
+               clienteNegocio.AgregarCliente(nuevo);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("error", ex);
+                throw;
             }
 
         }
