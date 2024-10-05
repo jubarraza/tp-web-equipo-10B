@@ -15,12 +15,12 @@ namespace TP_web_equipo_10B
     {
 
         /// <summary>
-        /// Control btnPremio.
+        /// Control rp_Repetidor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPremio;
+        protected global::System.Web.UI.WebControls.Repeater rp_Repetidor;
     }
 }

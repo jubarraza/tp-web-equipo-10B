@@ -13,67 +13,64 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="mb-xl-3">
+<div class="mb-xl-3">
 
-        <div class="mb-3 row">
-            <h1>Eleccion del premio</h1>
-            <p>En esta seccion podras seleccionar entre los premios disponibles</p>
-        </div>
+   <div class="mb-3 row">
+      <h1>Eleccion del premio</h1>
+      <p>En esta seccion podras seleccionar entre los premios disponibles</p>
+   </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+   <div class="row row-cols-3 g-4">
 
-            <% foreach (Dominio.Articulo art in ListaArticulos)
-                {
-                    foreach (Dominio.Imagen img in ListaImagenes)
-                    {
-                        if (img.Articulo.Id == art.Id)
-                        {
-                            ImagenesArticulo.Add(img);
-                        }
+     <asp:Repeater runat="server" ID="rp_Repetidor" OnItemDataBound="rp_Repetidor_ItemDataBound">
+         <ItemTemplate>
+             <div class="col">
+                 <div class="card">
 
-                    }%>
+                     <!-- carousel -->
+                   <div id="carousel<%#Eval("Id")%>" class="carousel slide carousel-dark">
+                       <div class="carousel-inner">
+      
+                    <asp:Repeater runat="server" ID="rpImagenes">
+                      <ItemTemplate>
+      
+                         <div id="imgDiv" class="carousel-item" runat="server">
+                         <asp:Image ImageUrl='<%#Eval("UrlImagen") %>' runat="server" CssClass="d-block w-100 img-small" AlternateText="Imagen Articulo" ID="imgControl"/>
+                         </div>
 
-            <div class="col">
-                <div class="card h-100">
+                         </ItemTemplate>
+                       </asp:Repeater>
 
-                    <!-- carousel -->
-                    <div id="carousel<%: art.Id %>" class="carousel slide carousel-dark" >
-                        <div class="carousel-inner">
-                            <% for (int i = 0; i < ImagenesArticulo.Count; i++)
-                                { %>
-                            <div class="carousel-item <%: (i == 0) ? "active" : "" %>">
-                                <img src="<%: ImagenesArticulo[i].UrlImagen %>" class="d-block w-100 img-small" alt="Imagen del artículo">
-                            </div>
-                            <% } %>
-                        </div>
+                    <!-- controles del carousel -->
+                    <div id="carouselControl" runat="server">
+                    <button class="carousel-control-prev" id="btnAtras" type="button" data-bs-target="#carousel<%#Eval("Id")%>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                    </button>
 
-                        <!-- controles del carousel -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%: art.Id %>" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
+                    <button class="carousel-control-next" id="btnAdelante" type="button" data-bs-target="#carousel<%#Eval("Id")%>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                    </button>
+                    </div> <!-- cierra controles de carousel -->
 
-                        <button class="carousel-control-next" type="button" data-bs-target="#carousel<%: art.Id %>" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
-                   
-                    <!-- Contenido de la Card -->
-                    <div class="card-body">
-                        <h5 class="card-title"><%: art.Nombre %></h5>
-                        <p class="card-text"><%: art.Descripcion %></p>
-                        <div class="button-center card border-0">
-                            <asp:Button Text="Quiero este premio!" runat="server" ID="btnPremio" CssClass="btn btn-primary" />
-                        </div>
-                    </div>
-                </div>
-            </div>
+                     </div> <!-- cierra el carousel inner -->
+                 </div> <!-- cierra el carousel slide -->
+                 
+                 <div class="card-body">
+                     <h5 class="card-title"><%# Eval("Id") %> - <%# Eval("Nombre") %></h5>
+                     <p class="card-text"><%# Eval("Descripcion") %></p>
+                     <div class="button-center card border-0">
+                     <asp:Button Text="Quiero este premio" runat="server" ID="btnPremio" CssClass="btn btn-primary" OnClick="btnPremio_Click" CommandArgument='<%# Eval("Id") %>' />
+                     </div>
+                 </div> <!-- cierra el card body -->
 
-            <%  ImagenesArticulo.Clear();
+                    </div> <!-- cierra class card -->
+                </div> <!-- cierra class col -->
+            </ItemTemplate>
+        </asp:Repeater>
 
-                } %>
-        </div>
-    </div>
+    </div> <!-- cierra class row row-cols-1 -->
+</div> <!-- cierra class mb-xl-3 -->
 
 </asp:Content>
