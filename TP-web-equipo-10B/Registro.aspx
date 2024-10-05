@@ -47,7 +47,7 @@
                 <div class="col order-last">
                     <div class="col-12">
                         <label for="txtEmail" class="form-label">Email</label>
-                        <asp:TextBox runat="server" ID="txtEmail" class="form-control" placeholder="miemail@email.com" />
+                        <asp:TextBox runat="server" ID="txtEmail" class="form-control" placeholder="miemail@email.com"/>
                         <div id="EmailAlert" class="form-text">
                             <asp:Label runat="server" ID="lblEmailError" CssClass="text-danger" Visible="false" Text="Ingrese Email" />
                         </div>

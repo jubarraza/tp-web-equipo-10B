@@ -24,22 +24,24 @@ namespace TP_web_equipo_10B
         {
             try
             {
-                /* Cliente nuevo = new Cliente();
-                 ClienteNegocio clienteNegocio = new ClienteNegocio();
+                Cliente nuevo = new Cliente();
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
 
-                 nuevo.Documento = txtDni.Text;
-                 nuevo.Nombre = txtNombre.Text;
-                 nuevo.Apellido = txtApellido.Text;
-                 nuevo.Email = txtEmail.Text;
-                 nuevo.Direccion = txtDireccion.Text;
-                 nuevo.Ciudad = txtCiudad.Text;
-                 nuevo.Cp = int.Parse(txtCP.Text);
+                if (Validarcompleto() && AceptarTerminos())
+                {
+                    nuevo.Documento = txtDni.Text;
+                    nuevo.Nombre = txtNombre.Text;
+                    nuevo.Apellido = txtApellido.Text;
+                    nuevo.Email = txtEmail.Text;
+                    nuevo.Direccion = txtDireccion.Text;
+                    nuevo.Ciudad = txtCiudad.Text;
+                    nuevo.Cp = int.Parse(txtCP.Text);
 
-                
+                    clienteNegocio.AgregarCliente(nuevo);
 
-                clienteNegocio.AgregarCliente(nuevo);*/
+                    Response.Redirect("Success.aspx", false);
+                }
 
-                Validarcompleto();
             }
             catch (Exception ex)
             {
@@ -48,10 +50,31 @@ namespace TP_web_equipo_10B
             }
         }
 
+        private bool AceptarTerminos() 
+        {
+            if(checkCondiciones.Checked == true) 
+            { 
+                return true;
+            }
+            else
+            {
+                lblCondicionesError.Visible = true;
+                return false;
+            }
+        }
+
+
         private bool Validarcompleto()
         {
             if (string.IsNullOrWhiteSpace(txtDni.Text))
+            {     
+                    lblDniError.Text = "Ingrese DNI";
+                    lblDniError.Visible = true;
+                    return false;         
+            }
+            if (txtDni.Text.Length != 8 || VerificarNumeros(txtDni.Text))
             {
+                lblDniError.Text = "Debe ingresar un DNI valido";
                 lblDniError.Visible = true;
                 return false;
             }
@@ -87,6 +110,20 @@ namespace TP_web_equipo_10B
             }
             return true;
         }
+
+
+        private bool VerificarNumeros(string texto)
+        {
+            foreach (char N in texto)
+            {
+                if (char.IsLetter(N))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+ 
 
 
     }
