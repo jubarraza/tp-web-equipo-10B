@@ -23,16 +23,19 @@
                 <div class="navbar-expand" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="Voucher.aspx">Ingresa tu Vaucher</a>
+                            <a class="nav-link" href="Default.aspx">Carga de Voucher (default)</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Premios.aspx">Seleccion de Premios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Default.aspx">Carga de Cliente</a>
+                            <a class="nav-link" href="Registro.aspx">Carga de Cliente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Default.aspx">Pantalla de Exito</a>
+                            <a class="nav-link" href="Success.aspx">Pantalla de Exito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Error.aspx">Pantalla de Error</a>
                         </li>
                     </ul>
                 </div>
