@@ -15,33 +15,6 @@ namespace TP_web_equipo_10B
     {
 
         /// <summary>
-        /// ScmValidar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScmValidar;
-
-        /// <summary>
-        /// VentanaModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel VentanaModal;
-
-        /// <summary>
-        /// btAceptarModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btAceptarModal;
-
-        /// <summary>
         /// txtDni control.
         /// </summary>
         /// <remarks>
@@ -49,6 +22,15 @@ namespace TP_web_equipo_10B
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDni;
+
+        /// <summary>
+        /// lblDniError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDniError;
 
         /// <summary>
         /// txtNombre control.
@@ -60,6 +42,15 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
+        /// lblNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombre;
+
+        /// <summary>
         /// txtApellido control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace TP_web_equipo_10B
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
+
+        /// <summary>
+        /// lblApellido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblApellido;
 
         /// <summary>
         /// txtEmail control.
@@ -78,6 +78,15 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
+        /// lblEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmail;
+
+        /// <summary>
         /// txtDireccion control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace TP_web_equipo_10B
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+
+        /// <summary>
+        /// lblDireccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDireccion;
 
         /// <summary>
         /// txtCiudad control.
@@ -96,6 +114,15 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtCiudad;
 
         /// <summary>
+        /// lblCiudad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCiudad;
+
+        /// <summary>
         /// txtCP control.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace TP_web_equipo_10B
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCP;
+
+        /// <summary>
+        /// lblCP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCP;
 
         /// <summary>
         /// checkCondiciones control.
@@ -114,6 +150,15 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.CheckBox checkCondiciones;
 
         /// <summary>
+        /// lblCondiciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCondiciones;
+
+        /// <summary>
         /// btnAceptar control.
         /// </summary>
         /// <remarks>
@@ -121,23 +166,5 @@ namespace TP_web_equipo_10B
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptar;
-
-        /// <summary>
-        /// BtVtmd1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtVtmd1;
-
-        /// <summary>
-        /// AjVentanaModal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender AjVentanaModal;
     }
 }

@@ -35,9 +35,14 @@ namespace TP_web_equipo_10B
 
 
                 clienteNegocio.AgregarCliente(nuevo);*/
+                /*
+                 if(txtNombre.Text == string.Empty || txtApellido.Text == string.Empty)
+                 {
+                     txt
+                 }*/
 
-               
-
+                //AjVentanaModal.Show();
+             
 
             }
             catch (Exception ex)
