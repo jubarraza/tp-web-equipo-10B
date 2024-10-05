@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio;
 using Dominio;
+using System.Text;
+using System.EnterpriseServices;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
 
 
 namespace TP_web_equipo_10B
@@ -32,25 +35,59 @@ namespace TP_web_equipo_10B
                  nuevo.Ciudad = txtCiudad.Text;
                  nuevo.Cp = int.Parse(txtCP.Text);
 
-
+                
 
                 clienteNegocio.AgregarCliente(nuevo);*/
-                /*
-                 if(txtNombre.Text == string.Empty || txtApellido.Text == string.Empty)
-                 {
-                     txt
-                 }*/
 
-                //AjVentanaModal.Show();
-             
-
+                Validarcompleto();
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
                 throw;
             }
-
         }
+
+        private bool Validarcompleto()
+        {
+            if (string.IsNullOrWhiteSpace(txtDni.Text))
+            {
+                lblDniError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                lblNombreError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
+            {
+                lblApellidoError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                lblEmailError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                lblDireccionError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtCiudad.Text))
+            {
+                lblCiudadError.Visible = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtCP.Text))
+            {
+                lblCpError.Visible = true;
+                return false;
+            }
+            return true;
+        }
+
+
     }
 }

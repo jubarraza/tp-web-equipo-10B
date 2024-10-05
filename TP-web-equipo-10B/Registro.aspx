@@ -30,7 +30,7 @@
                         <label for="txtNombre" class="form-label">Nombre</label>
                         <asp:TextBox runat="server" ID="txtNombre" class="form-control" placeholder="Homero" />
                         <div id="NombreAlert" class="form-text">
-                            <asp:Label runat="server" ID="lblNombre" CssClass="text-danger" Visible="false" Text="Ingrese Nombre" />
+                            <asp:Label runat="server" ID="lblNombreError" CssClass="text-danger" Visible="false" Text="Ingrese Nombre" />
                         </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <label for="txtApellido" class="form-label">Apellido</label>
                         <asp:TextBox runat="server" ID="txtApellido" class="form-control" placeholder="Thompson" />
                         <div id="ApellidoAlert" class="form-text">
-                            <asp:Label runat="server" ID="lblApellido" CssClass="text-danger" Visible="false" Text="Ingrese Apellido" />
+                            <asp:Label runat="server" ID="lblApellidoError" CssClass="text-danger" Visible="false" Text="Ingrese Apellido" />
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <label for="txtEmail" class="form-label">Email</label>
                         <asp:TextBox runat="server" ID="txtEmail" class="form-control" placeholder="miemail@email.com" />
                         <div id="EmailAlert" class="form-text">
-                            <asp:Label runat="server" ID="lblEmail" CssClass="text-danger" Visible="false" Text="Ingrese Email" />
+                            <asp:Label runat="server" ID="lblEmailError" CssClass="text-danger" Visible="false" Text="Ingrese Email" />
                         </div>
                     </div>
                 </div>
@@ -60,21 +60,21 @@
                     <label for="txtDireccion" class="form-label">Dirección</label>
                     <asp:TextBox runat="server" ID="txtDireccion" class="form-control" placeholder="Mi Ciudad" />
                     <div id="DireccionAlert" class="form-text">
-                        <asp:Label runat="server" ID="lblDireccion" CssClass="text-danger" Visible="false" Text="Ingrese Direccion" />
+                        <asp:Label runat="server" ID="lblDireccionError" CssClass="text-danger" Visible="false" Text="Ingrese Direccion" />
                     </div>
                 </div>
                 <div class="col-4">
                     <label for="txtCiudad" class="form-label">Ciudad</label>
                     <asp:TextBox runat="server" ID="txtCiudad" class="form-control" placeholder="Calle 123" />
                     <div id="CiudadAlert" class="form-text">
-                        <asp:Label runat="server" ID="lblCiudad" CssClass="text-danger" Visible="false" Text="Ingrese Ciudad" />
+                        <asp:Label runat="server" ID="lblCiudadError" CssClass="text-danger" Visible="false" Text="Ingrese Ciudad" />
                     </div>
                 </div>
                 <div class="col-2">
                     <label for="txtCP" class="form-label">CP</label>
                     <asp:TextBox runat="server" ID="txtCP" class="form-control" placeholder="xxxx" />
                     <div id="CP" class="form-text">
-                        <asp:Label runat="server" ID="lblCP" CssClass="text-danger" Visible="false" Text="Ingrese CP" />
+                        <asp:Label runat="server" ID="lblCpError" CssClass="text-danger" Visible="false" Text="Ingrese CP" />
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                 <asp:CheckBox ID="checkCondiciones" class="form-check-label" runat="server" />
                 <label for="checkCondiciones" class="form-check-label">Acepto los términos y condiones</label>
                 <div id="NombreHelp" class="form-text">
-                    <asp:Label runat="server" ID="lblCondiciones" CssClass="text-danger" Visible="false" Text="Debe aceptar los terminos y condiciones para participar" />
+                    <asp:Label runat="server" ID="lblCondicionesError" CssClass="text-danger" Visible="false" Text="Debe aceptar los terminos y condiciones para participar" />
                 </div>
             </div>
             <br />

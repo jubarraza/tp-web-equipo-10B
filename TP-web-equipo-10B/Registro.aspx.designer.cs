@@ -42,13 +42,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
 
         /// <summary>
-        /// lblNombre control.
+        /// lblNombreError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lblNombreError;
 
         /// <summary>
         /// txtApellido control.
@@ -60,13 +60,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
 
         /// <summary>
-        /// lblApellido control.
+        /// lblApellidoError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellido;
+        protected global::System.Web.UI.WebControls.Label lblApellidoError;
 
         /// <summary>
         /// txtEmail control.
@@ -78,13 +78,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// lblEmail control.
+        /// lblEmailError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblEmailError;
 
         /// <summary>
         /// txtDireccion control.
@@ -96,13 +96,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
         /// <summary>
-        /// lblDireccion control.
+        /// lblDireccionError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
+        protected global::System.Web.UI.WebControls.Label lblDireccionError;
 
         /// <summary>
         /// txtCiudad control.
@@ -114,13 +114,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtCiudad;
 
         /// <summary>
-        /// lblCiudad control.
+        /// lblCiudadError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCiudad;
+        protected global::System.Web.UI.WebControls.Label lblCiudadError;
 
         /// <summary>
         /// txtCP control.
@@ -132,13 +132,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.TextBox txtCP;
 
         /// <summary>
-        /// lblCP control.
+        /// lblCpError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCP;
+        protected global::System.Web.UI.WebControls.Label lblCpError;
 
         /// <summary>
         /// checkCondiciones control.
@@ -150,13 +150,13 @@ namespace TP_web_equipo_10B
         protected global::System.Web.UI.WebControls.CheckBox checkCondiciones;
 
         /// <summary>
-        /// lblCondiciones control.
+        /// lblCondicionesError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCondiciones;
+        protected global::System.Web.UI.WebControls.Label lblCondicionesError;
 
         /// <summary>
         /// btnAceptar control.
