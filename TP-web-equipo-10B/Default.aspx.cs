@@ -12,6 +12,27 @@ namespace TP_web_equipo_10B
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text = string.Empty;
+        }
+
+        protected void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text = string.Empty;
         }
     }
 }

@@ -15,18 +15,18 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="examplemodallabel">Ingresa el Codigo de tu Vaucher! </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                <h1 class="modal-title fs-5" id="examplemodallabel">Ingresa el Codigo de tu Vaucher! </h1>                
+                <asp:Button ID="btnCerrar" CssClass="btn-close" Onclick="btnCerrar_Click" data-bs-dismiss="modal" aria-label="close" runat="server"/>
               </div>
               <div class="modal-body">
                   <div class="col-auto">
-                    <label for="inputPassword2" class="visually-hidden">Password</label>
-                    <input type="password" class="form-control" id="inputPassword2" placeholder="Codigo">
+                    <label for="txtPassword2" class="visually-hidden">Password</label>
+                      <asp:TextBox type="password" cssclass="form-control" ID="txtPassword" OnTextChanged="txtPassword_TextChanged" placeholder="Codigo..." runat="server"></asp:TextBox>                    
                   </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">siguiente</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                <asp:Button ID="btnSiguiente" CssClass="btn btn-primary" OnClick="btnSiguiente_Click" runat="server" Text="Siguiente" />
+                <asp:Button ID="btnCancelar" CssClass="btn btn-secondary" OnClick="btnCancelar_Click" runat="server" Text="Cancelar" />                
               </div>
             </div>
           </div>
