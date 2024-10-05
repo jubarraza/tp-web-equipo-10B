@@ -9,6 +9,7 @@ using Dominio;
 using System.Text;
 using System.EnterpriseServices;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
+using System.Text.RegularExpressions;
 
 
 namespace TP_web_equipo_10B
@@ -95,6 +96,12 @@ namespace TP_web_equipo_10B
                 lblEmailError.Visible = true;
                 band = false;
             }
+            if (!validarEmail(txtEmail.Text))
+            {
+                lblEmailError.Text = "Debe ingresar un email valido";
+                lblEmailError.Visible = true;
+                band = false;
+            }
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 lblDireccionError.Visible = true;
@@ -148,7 +155,19 @@ namespace TP_web_equipo_10B
             lblCondicionesError.Visible=false;
         }
  
-
+        private bool validarEmail(string email)
+        {
+            string formato;
+            formato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]w+)*";
+            if(Regex.Replace(email,formato,string.Empty).Length == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
