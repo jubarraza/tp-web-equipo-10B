@@ -26,9 +26,10 @@ namespace TP_web_equipo_10B
             {
                 Cliente nuevo = new Cliente();
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
+                ResetearError();
 
                 if (Validarcompleto() && AceptarTerminos())
-                {
+                {                   
                     nuevo.Documento = txtDni.Text;
                     nuevo.Nombre = txtNombre.Text;
                     nuevo.Apellido = txtApellido.Text;
@@ -66,49 +67,60 @@ namespace TP_web_equipo_10B
 
         private bool Validarcompleto()
         {
+            bool band = true;
             if (string.IsNullOrWhiteSpace(txtDni.Text))
             {     
                     lblDniError.Text = "Ingrese DNI";
                     lblDniError.Visible = true;
-                    return false;         
+                    band = false;         
             }
             if (txtDni.Text.Length != 8 || VerificarNumeros(txtDni.Text))
             {
                 lblDniError.Text = "Debe ingresar un DNI valido";
                 lblDniError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 lblNombreError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 lblApellidoError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 lblEmailError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 lblDireccionError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtCiudad.Text))
             {
                 lblCiudadError.Visible = true;
-                return false;
+                band = false;
             }
             if (string.IsNullOrWhiteSpace(txtCP.Text))
             {
                 lblCpError.Visible = true;
+                band = false;
+            }
+
+            if(band)
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
-            return true;
+
+
         }
 
 
@@ -122,6 +134,18 @@ namespace TP_web_equipo_10B
                 }
             }
             return false;
+        }
+
+        private void ResetearError()
+        {
+            lblDniError.Visible = false;
+            lblNombreError.Visible = false;
+            lblApellidoError.Visible = false;
+            lblEmailError.Visible=false;
+            lblDireccionError.Visible=false;
+            lblCiudadError.Visible=false;
+            lblCpError.Visible=false;
+            lblCondicionesError.Visible=false;
         }
  
 
