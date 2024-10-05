@@ -21,18 +21,24 @@ namespace TP_web_equipo_10B
         {
             try
             {
-                Cliente nuevo = new Cliente();
-                ClienteNegocio clienteNegocio = new ClienteNegocio();
+                /* Cliente nuevo = new Cliente();
+                 ClienteNegocio clienteNegocio = new ClienteNegocio();
 
-                nuevo.Documento = txtDni.Text;
-                nuevo.Nombre = txtNombre.Text;
-                nuevo.Apellido = txtApellido.Text;
-                nuevo.Email = txtEmail.Text;
-                nuevo.Direccion = txtDireccion.Text;
-                nuevo.Ciudad = txtCiudad.Text;
-                nuevo.Cp = int.Parse(txtCP.Text);
+                 nuevo.Documento = txtDni.Text;
+                 nuevo.Nombre = txtNombre.Text;
+                 nuevo.Apellido = txtApellido.Text;
+                 nuevo.Email = txtEmail.Text;
+                 nuevo.Direccion = txtDireccion.Text;
+                 nuevo.Ciudad = txtCiudad.Text;
+                 nuevo.Cp = int.Parse(txtCP.Text);
 
-               clienteNegocio.AgregarCliente(nuevo);
+
+
+                clienteNegocio.AgregarCliente(nuevo);*/
+
+               
+
+
             }
             catch (Exception ex)
             {
