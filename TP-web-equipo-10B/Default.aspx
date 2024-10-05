@@ -6,9 +6,11 @@
 
             <div>
                 <!-- button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#examplemodal">
-          Ingresa tu Voucher
-        </button>
+        <div class="d-grid gap-2 col-4 mx-auto">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#examplemodal">
+              Ingresa tu Voucher
+            </button>
+        </div>
 
         <!-- modal -->
         <div class="modal fade" id="examplemodal" tabindex="-1" aria-labelledby="examplemodallabel" aria-hidden="true">
@@ -21,7 +23,7 @@
               <div class="modal-body">
                   <div class="col-auto">
                     <label for="txtPassword2" class="visually-hidden">Password</label>
-                      <asp:TextBox type="password" cssclass="form-control" ID="txtPassword" OnTextChanged="txtPassword_TextChanged" placeholder="Codigo..." runat="server"></asp:TextBox>                    
+                      <asp:TextBox type="password" cssclass="form-control" ID="txtPassword" placeholder="Codigo..." runat="server"></asp:TextBox>                    
                   </div>
               </div>
               <div class="modal-footer">
