@@ -71,7 +71,6 @@
     <Content Include="Global.asax" />
     <Content Include="Premios.aspx" />
     <Content Include="Registro.aspx" />
-    <Content Include="Voucher.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,13 +105,6 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Voucher.aspx.cs">
-      <DependentUpon>Voucher.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Voucher.aspx.designer.cs">
-      <DependentUpon>Voucher.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
