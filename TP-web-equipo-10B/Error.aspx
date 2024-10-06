@@ -3,7 +3,21 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>⛔ Pagina de Error</h1>
+    
+
+    <div class="row mt-4 mb-4">
+    <h1>⛔ Se ha producido un Error</h1>
+        </div>
+    
+        <div class="mb-5 row bg-danger-subtle">   
+    <asp:Label Text="Error" ID="lblError" runat="server" />
+        </div>
+
+    <div>
+        <div class="button-center card border-0">
+            <asp:Button Text="Volver a la pantalla principal" runat="server" CssClass="btn btn-secondary btn-group-lg mt-5" OnClick="Unnamed_Click"/>
+</div>
 
 
+    </div>
 </asp:Content>

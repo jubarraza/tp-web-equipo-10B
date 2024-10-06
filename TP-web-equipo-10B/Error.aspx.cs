@@ -11,7 +11,17 @@ namespace TP_web_equipo_10B
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["error"] != null)
+            {
+                lblError.Text = Session["error"].ToString();
 
+            }
+
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 }
