@@ -2,6 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Incluir Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 
     <style>
         body {
@@ -108,8 +112,10 @@
                 <asp:Button ID="btnCerrar" CssClass="btn-close" Onclick="btnCerrar_Click" data-bs-dismiss="modal" aria-label="close" runat="server"/>
               </div>
               <div class="modal-body">
-                  <div class="col-auto">
-                      <asp:TextBox cssclass="form-control" ID="txtPassword" placeholder="Codigo..." runat="server" MaxLength="50"></asp:TextBox>                    
+                  <div class="input-group mb-3">
+                      <asp:TextBox cssclass="form-control" type="password" ID="txtPassword" placeholder="Codigo..." runat="server" MaxLength="50"></asp:TextBox>                    
+                  
+                  <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                   </div>
               </div>
               <div class="modal-footer">
@@ -120,5 +126,22 @@
           </div>
         </div>
     </div>
+
+<script type="text/javascript">
+    function mostrarPassword() {
+        var passwordField = document.getElementById('<%= txtPassword.ClientID %>'); 
+        var icon = document.querySelector('#show_password .icon'); 
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text"; 
+            icon.classList.remove("fa-eye-slash"); 
+            icon.classList.add("fa-eye");
+        } else {
+            passwordField.type = "password"; 
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash"); 
+        }
+    }
+</script>
 
 </asp:Content>

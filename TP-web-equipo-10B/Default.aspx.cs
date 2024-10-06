@@ -74,5 +74,6 @@ namespace TP_web_equipo_10B
         {
             txtPassword.Text = string.Empty;
         }
+
     }
 }
