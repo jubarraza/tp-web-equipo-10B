@@ -30,7 +30,7 @@ namespace TP_web_equipo_10B
 
 
 
-                    lblVoucher.Text = "El voucher registrado es: " + voucher;
+                    lblVoucher.Text = "El voucher registrado es: " + voucher.ToUpper();
                     lblPremio.Text = "El premio seleccionado es el #" + premioId + " - " + premio.Nombre;
                     lblDniCliente.Text = "El cliente registrado es: " + cliente.Nombre + " " + cliente.Apellido + " - DNI: " + clienteDni;
 
