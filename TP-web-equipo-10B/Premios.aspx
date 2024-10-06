@@ -2,12 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .img-small {
-            height: 350px;
-            width: 90%;
-            object-fit: scale-down;
-        }
-    </style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: url('https://cdn.cbeditz.com/cbeditz/preview/blue-white-gradiant-powerpoint-background-2-116109704563a3dqfntna.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .img-small {
+        height: 350px;
+        width: 90%;
+        object-fit: scale-down;
+    }
+
+    h1 {
+        font-weight: 700;
+    }
+
+    p{
+        font-weight: 400;
+        font-size:larger;
+    }
+
+</style>
 
 </asp:Content>
 
@@ -15,9 +31,12 @@
 
 <div class="mb-xl-3">
 
-   <div class="mb-3 row">
-      <h1>Eleccion del premio</h1>
-      <p>En esta seccion podras seleccionar entre los premios disponibles</p>
+   <div class="mb-3 mt-4 row text-bg-success col-4 text-center">
+      <h4>Voucher ingresado con exito!</h4>
+       </div>
+       <div class="mb-3">
+       <h1>Continua con la elección de tu premio</h1>
+      <p>Solo se puede elegir uno de los premios disponibles</p>
    </div>
 
    <div class="row row-cols-3 g-4">
@@ -25,7 +44,7 @@
      <asp:Repeater runat="server" ID="rp_Repetidor" OnItemDataBound="rp_Repetidor_ItemDataBound">
          <ItemTemplate>
              <div class="col">
-                 <div class="card">
+                 <div class="card h-100">
 
                      <!-- carousel -->
                    <div id="carousel<%#Eval("Id")%>" class="carousel slide carousel-dark">

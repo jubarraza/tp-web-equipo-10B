@@ -25,11 +25,13 @@ namespace TP_web_equipo_10B
                     List<Articulo> lista = artNegocio.listar();
                     rp_Repetidor.DataSource = lista;
                     rp_Repetidor.DataBind();
+
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
 
         }
@@ -41,13 +43,14 @@ namespace TP_web_equipo_10B
                 string id = ((Button)sender).CommandArgument;
 
                 Session.Add("premioID", id);
-                Response.Write("ID de articulo elegido " + id);
+                //Response.Write("ID de articulo elegido " + id);
+                Response.Redirect("Registro.aspx", false);
+
             }
             catch (Exception ex)
             {
-                //Session.Add("error", ex);
-                //Response.Redirect("Error.aspx");
-                Response.Write(ex.ToString());
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -72,9 +75,8 @@ namespace TP_web_equipo_10B
             }
             catch (Exception ex)
             {
-                //Session.Add("error", ex);
-                //Response.Redirect("Error.aspx");
-                Response.Write(ex.ToString());
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
                 throw;
             }
         }
@@ -127,9 +129,8 @@ namespace TP_web_equipo_10B
             }
             catch (Exception ex)
             {
-                //Session.Add("error", ex);
-                //Response.Redirect("Error.aspx");
-                Response.Write(ex.ToString());
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -163,9 +164,8 @@ namespace TP_web_equipo_10B
             }
             catch (Exception ex)
             {
-                //Session.Add("error", ex);
-                //Response.Redirect("Error.aspx");
-                Response.Write(ex.ToString());
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
     }

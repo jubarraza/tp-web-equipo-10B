@@ -25,32 +25,72 @@ namespace TP_web_equipo_10B
         {
             try
             {
-                Cliente nuevo = new Cliente();
-                ClienteNegocio clienteNegocio = new ClienteNegocio();
-                ResetearError();
+                ClienteNegocio negociocliente = new ClienteNegocio();
 
-                if (Validarcompleto() && AceptarTerminos())
-                {                   
-                    nuevo.Documento = txtDni.Text;
-                    nuevo.Nombre = txtNombre.Text;
-                    nuevo.Apellido = txtApellido.Text;
-                    nuevo.Email = txtEmail.Text;
-                    nuevo.Direccion = txtDireccion.Text;
-                    nuevo.Ciudad = txtCiudad.Text;
-                    nuevo.Cp = int.Parse(txtCP.Text);
+                if (AceptarTerminos())
+                {
+                    if (Validarcompleto())
+                    {
+                        if (negociocliente.ConsultarDni(txtDni.Text) == false)
+                        {
+                            CrearCliente();
+                        }
+                        else
+                        {
+                            Cliente modificado = negociocliente.obtenerCliente(txtDni.Text);
+                            negociocliente.ModificarCliente(modificado);
+                        }
 
-                    clienteNegocio.AgregarCliente(nuevo);
+                        Session.Add("cliente", txtDni.Text);
 
-                    Response.Redirect("Success.aspx", false);
+                        Response.Redirect("Success.aspx", false);
+
+                    }
+
                 }
+                else
+                {
+                    lblCondicionesError.Visible = true;
+                }
+
                 
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
-                throw;
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
         }
+
+        private void CrearCliente()
+        {
+            try
+            {
+                Cliente nuevo = new Cliente();
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
+                ResetearError();
+
+
+                nuevo.Documento = txtDni.Text;
+                nuevo.Nombre = txtNombre.Text;
+                nuevo.Apellido = txtApellido.Text;
+                nuevo.Email = txtEmail.Text;
+                nuevo.Direccion = txtDireccion.Text;
+                nuevo.Ciudad = txtCiudad.Text;
+                nuevo.Cp = int.Parse(txtCP.Text);
+
+                clienteNegocio.AgregarCliente(nuevo);
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+        }
+
 
         private bool AceptarTerminos() 
         {
@@ -68,66 +108,76 @@ namespace TP_web_equipo_10B
 
         private bool Validarcompleto()
         {
-            bool band = true;
-            if (string.IsNullOrWhiteSpace(txtDni.Text))
-            {     
+            try
+            {
+                bool band = true;
+                if (string.IsNullOrWhiteSpace(txtDni.Text))
+                {
                     lblDniError.Text = "Ingrese DNI";
                     lblDniError.Visible = true;
-                    band = false;         
+                    band = false;
+                }
+                if (txtDni.Text.Length < 8 || VerificarNumeros(txtDni.Text))
+                {
+                    lblDniError.Text = "Debe ingresar un DNI valido";
+                    lblDniError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    lblNombreError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtApellido.Text))
+                {
+                    lblApellidoError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtEmail.Text))
+                {
+                    lblEmailError.Visible = true;
+                    band = false;
+                }
+                if (!validarEmail(txtEmail.Text))
+                {
+                    lblEmailError.Text = "Debe ingresar un email valido";
+                    lblEmailError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    lblDireccionError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtCiudad.Text))
+                {
+                    lblCiudadError.Visible = true;
+                    band = false;
+                }
+                if (string.IsNullOrWhiteSpace(txtCP.Text) || VerificarNumeros(txtCP.Text))
+                {
+                    lblCpError.Visible = true;
+                    band = false;
+                }
+
+                if (band)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            if (txtDni.Text.Length != 8 || VerificarNumeros(txtDni.Text))
+            catch (Exception ex)
             {
-                lblDniError.Text = "Debe ingresar un DNI valido";
-                lblDniError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                lblNombreError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtApellido.Text))
-            {
-                lblApellidoError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                lblEmailError.Visible = true;
-                band = false;
-            }
-            if (!validarEmail(txtEmail.Text))
-            {
-                lblEmailError.Text = "Debe ingresar un email valido";
-                lblEmailError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                lblDireccionError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtCiudad.Text))
-            {
-                lblCiudadError.Visible = true;
-                band = false;
-            }
-            if (string.IsNullOrWhiteSpace(txtCP.Text))
-            {
-                lblCpError.Visible = true;
-                band = false;
+
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx", false);
+                throw;
             }
 
-            if(band)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-
+            
         }
 
 
@@ -167,6 +217,62 @@ namespace TP_web_equipo_10B
             {
                 return false;
             }
+        }
+
+        protected void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtDni.Text.Length < 8 || VerificarNumeros(txtDni.Text))
+                {
+                    lblDniError.Text = "Debe ingresar un DNI valido";
+                    lblDniError.Visible = true;
+                    LimpiarCampos();
+                }
+                else //tiene formato correcto
+                {
+                    lblDniError.Visible = false;
+                    ClienteNegocio negocioCliente = new ClienteNegocio();
+                    Cliente aux = new Cliente();
+
+                    if (negocioCliente.ConsultarDni(txtDni.Text))
+                    {
+                        aux = negocioCliente.obtenerCliente(txtDni.Text);
+
+                        txtDni.Text = aux.Documento;
+                        txtNombre.Text = aux.Nombre;
+                        txtApellido.Text = aux.Apellido;
+                        txtEmail.Text = aux.Email;
+                        txtDireccion.Text = aux.Direccion;
+                        txtCiudad.Text = aux.Ciudad;
+                        txtCP.Text = aux.Cp.ToString();
+                    }
+                    else
+                    {
+                        lblDniError.Visible = false;
+                        LimpiarCampos();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
+            }
+
+            
+
+        }
+
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtEmail.Text = "";
+            txtDireccion.Text = "";
+            txtCiudad.Text = "";
+            txtCP.Text = "";
         }
 
     }
