@@ -15,6 +15,24 @@ namespace TP_web_equipo_10B
     {
 
         /// <summary>
+        /// Control rpImagenes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpImagenes;
+
+        /// <summary>
+        /// Control carouselControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl carouselControl;
+
+        /// <summary>
         /// Control btnCerrar.
         /// </summary>
         /// <remarks>
