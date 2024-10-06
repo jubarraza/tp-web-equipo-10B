@@ -25,13 +25,18 @@ namespace TP_web_equipo_10B
 
                 if (voucher != null && premioId != null && clienteDni != null) 
                 {
+                    Cliente cliente = ObtenerClienteRegistrado(clienteDni);
+                    Articulo premio = ObtenerPremioElegido(premioId);
+
+
+
                     lblVoucher.Text = "El voucher registrado es: " + voucher;
-                    lblPremio.Text = "El premio seleccionado es el #" + premioId;
-                    lblDniCliente.Text = "El DNI del cliente registrado es: " + clienteDni;
+                    lblPremio.Text = "El premio seleccionado es el #" + premioId + " - " + premio.Nombre;
+                    lblDniCliente.Text = "El cliente registrado es: " + cliente.Nombre + " " + cliente.Apellido + " - DNI: " + clienteDni;
 
 
                     Voucher v = negVoucher.BuscarVoucher(voucher);
-                    v.IdCliente = negCliente.ConsultarID(clienteDni);
+                    v.IdCliente = cliente.Id;
                     v.FechaCanje = DateTime.Now;
                     v.IdArticulo = int.Parse(premioId);
 
@@ -41,7 +46,7 @@ namespace TP_web_equipo_10B
                 else
                 {
                     Session.Add("error","Falta alguno de los datos necesarios para el registro.\nPor favor vuelva a la pagina principal e intentelo de nuevo.");
-                    Response.Redirect("Error.aspx", false);
+                    //Response.Redirect("Error.aspx", false);
                 }
 
 
@@ -55,8 +60,26 @@ namespace TP_web_equipo_10B
             }
         }
         
+        private Articulo ObtenerPremioElegido(string id)
+        {
+            Articulo aux = new Articulo();
+            ArticuloNegocio neg = new ArticuloNegocio();
+
+            aux = neg.BuscarArticulo(int.Parse(id));
+
+            return aux;
+        }
+
+        private Cliente ObtenerClienteRegistrado(string clienteDNI)
+        {
+            Cliente aux = new Cliente();
+            ClienteNegocio neg = new ClienteNegocio();
+
+            aux = neg.obtenerCliente(clienteDNI);
+
+            return aux;
+        }
 
 
-        
     }
 }

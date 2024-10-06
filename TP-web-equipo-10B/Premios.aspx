@@ -31,7 +31,7 @@
 
 <div class="mb-xl-3">
 
-   <div class="mb-3 mt-4 row text-bg-success col-4 text-center">
+   <div class="mb-3 mt-4 row alert alert-success col-4 text-center">
       <h4>Voucher ingresado con exito!</h4>
        </div>
        <div class="mb-3">

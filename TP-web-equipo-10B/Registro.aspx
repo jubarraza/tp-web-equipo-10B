@@ -108,7 +108,7 @@
             </div>
             <br />
             <div class="col-3">
-                <asp:Button Text="Participar!!!" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
+                <asp:Button Text="Participar!!" ID="btnAceptar" CssClass="btn btn-primary" OnClick="btnAceptar_Click" runat="server" />
             </div>
         </div>
     </div>
