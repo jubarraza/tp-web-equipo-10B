@@ -78,14 +78,14 @@
             <div class="row">
                 <div class="col-6">
                     <label for="txtDireccion" class="form-label">Dirección</label>
-                    <asp:TextBox runat="server" ID="txtDireccion" class="form-control" placeholder="Mi Ciudad" MaxLength="50"/>
+                    <asp:TextBox runat="server" ID="txtDireccion" class="form-control" placeholder="Calle 123" MaxLength="50"/>
                     <div id="DireccionAlert" class="form-text">
                         <asp:Label runat="server" ID="lblDireccionError" CssClass="text-danger" Visible="false" Text="Ingrese Direccion" />
                     </div>
                 </div>
                 <div class="col-4">
                     <label for="txtCiudad" class="form-label">Ciudad</label>
-                    <asp:TextBox runat="server" ID="txtCiudad" class="form-control" placeholder="Calle 123" MaxLength="50"/>
+                    <asp:TextBox runat="server" ID="txtCiudad" class="form-control" placeholder="Mi Ciudad" MaxLength="50"/>
                     <div id="CiudadAlert" class="form-text">
                         <asp:Label runat="server" ID="lblCiudadError" CssClass="text-danger" Visible="false" Text="Ingrese Ciudad" />
                     </div>
