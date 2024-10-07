@@ -10,6 +10,7 @@ using System.Text;
 using System.EnterpriseServices;
 using static AjaxControlToolkit.AsyncFileUpload.Constants;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 
 namespace TP_web_equipo_10B
@@ -27,9 +28,10 @@ namespace TP_web_equipo_10B
             {
                 ClienteNegocio negociocliente = new ClienteNegocio();
 
-                if (AceptarTerminos())
+
+                if (Validarcompleto())
                 {
-                    if (Validarcompleto())
+                    if (AceptarTerminos())
                     {
                         if (negociocliente.ConsultarDni(txtDni.Text) == false)
                         {
@@ -38,27 +40,69 @@ namespace TP_web_equipo_10B
                         else
                         {
                             Cliente modificado = negociocliente.obtenerCliente(txtDni.Text);
+                            modificado.Nombre = txtNombre.Text;
+                            modificado.Apellido = txtApellido.Text;
+                            modificado.Email = txtEmail.Text;
+                            modificado.Direccion = txtDireccion.Text;
+                            modificado.Ciudad = txtCiudad.Text;
+                            modificado.Cp = int.Parse(txtCP.Text);
+
                             negociocliente.ModificarCliente(modificado);
                         }
+
+                        //envio del correo de confirmacion
+                        EnviarCorreo(txtEmail.Text, txtNombre.Text, txtApellido.Text);
 
                         Session.Add("cliente", txtDni.Text);
 
                         Response.Redirect("Success.aspx", false);
 
                     }
+                    else
+                    {
+                        lblCondicionesError.Visible = true;
+                    }
 
                 }
-                else
-                {
-                    lblCondicionesError.Visible = true;
-                }
 
-                
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex.ToString());
                 Response.Redirect("Error.aspx");
+            }
+        }
+
+        private void EnviarCorreo(string destinatario, string nombre, string apellido)
+        {
+            try
+            {
+                MailMessage correo = new MailMessage();
+                correo.From = new MailAddress("10b.Store.promo@gmail.com");
+                correo.To.Add(destinatario);
+                correo.Subject = "10bStore - Confirmación de participación en la promo Compra, Elegi y Gana";
+                correo.Body = $@"
+                                    <html>
+                                    <body>
+                                        <h2>¡Gracias por tu participación!</h2>
+                                        <p> Hola {nombre} {apellido},</p>
+                                        <p>Te confirmamos que tu participación en la promoción <strong>Compra, Elegí y Ganá</strong> ha quedado registrada correctamente.</p>
+                                        <p>¡Mucha suerte! 🍀🍀</p>
+                                        <hr/>
+                                        <p><small>Este es un mensaje automático, por favor no responda a este correo.</small></p>
+                                    </body>
+                                    </html>";
+                correo.IsBodyHtml = true;
+
+                // Enviar el correo usando la configuración del web.config
+                SmtpClient smtp = new SmtpClient();
+                smtp.Send(correo);
+                Console.WriteLine("Correo enviado a " + destinatario);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error al enviar el correo: " + ex.Message);
             }
         }
 
@@ -123,41 +167,72 @@ namespace TP_web_equipo_10B
                     lblDniError.Visible = true;
                     band = false;
                 }
+
                 if (string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
                     lblNombreError.Visible = true;
                     band = false;
                 }
+                else
+                {
+                    lblNombreError.Visible = false;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtApellido.Text))
                 {
                     lblApellidoError.Visible = true;
                     band = false;
                 }
+                else
+                {
+                    lblApellidoError.Visible = false;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtEmail.Text))
                 {
                     lblEmailError.Visible = true;
                     band = false;
                 }
+                else
+                {
+                    lblEmailError.Visible = false;
+                }
+
                 if (!validarEmail(txtEmail.Text))
                 {
                     lblEmailError.Text = "Debe ingresar un email valido";
                     lblEmailError.Visible = true;
                     band = false;
                 }
+
                 if (string.IsNullOrWhiteSpace(txtDireccion.Text))
                 {
                     lblDireccionError.Visible = true;
                     band = false;
                 }
+                else
+                {
+                    lblDireccionError.Visible = false;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtCiudad.Text))
                 {
                     lblCiudadError.Visible = true;
                     band = false;
                 }
+                else
+                {
+                    lblCiudadError.Visible = false;
+                }
+
                 if (string.IsNullOrWhiteSpace(txtCP.Text) || VerificarNumeros(txtCP.Text))
                 {
                     lblCpError.Visible = true;
                     band = false;
+                }
+                else
+                {
+                    lblCpError.Visible = false;
                 }
 
                 if (band)

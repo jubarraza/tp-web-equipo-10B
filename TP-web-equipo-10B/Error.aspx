@@ -6,10 +6,10 @@
     
 
     <div class="row mt-4 mb-4">
-    <h1>⛔ Se ha producido un Error</h1>
+    <h1>⛔ Se ha producido un error</h1>
         </div>
     
-        <div class="mb-5 row bg-danger-subtle">   
+        <div class="mb-5 row alert alert-danger">   
     <asp:Label Text="Error" ID="lblError" runat="server" />
         </div>
 

@@ -51,7 +51,7 @@ namespace TP_web_equipo_10B
                 }
                 else
                 {
-                    Session.Add("error", "El voucher ingresado no es valido");
+                    Session.Add("error", "El voucher ingresado ya ha sido utilizado o no es válido");
                     Response.Redirect("Error.aspx", false);
                 }
             }

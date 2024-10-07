@@ -9,31 +9,31 @@
             padding-left: 0rem;
         }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-        background: url('https://cdn.cbeditz.com/cbeditz/preview/blue-white-gradiant-powerpoint-background-2-116109704563a3dqfntna.jpg') no-repeat center center fixed;
-        background-size: cover;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://cdn.cbeditz.com/cbeditz/preview/blue-white-gradiant-powerpoint-background-2-116109704563a3dqfntna.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
 
-    h1 {
-        font-weight: 700;
-    }
+        h1 {
+            font-weight: 700;
+        }
 
-    p{
-        font-weight: 400;
-        font-size:larger;
-    }
+        p {
+            font-weight: 400;
+            font-size: larger;
+        }
 
 </style>
 
 
     <div class="row">
         <div class="row mb-4 mt-5">
-            <h1 class="text-center">Ultimo paso: Completa tus datos para que podamos contactarte</h1>
+            <h1 class="text-center">Ultimo paso: Completa tus datos personales</h1>
         </div>
         <div class="row mb-4">
             <p>Recorda que los datos que ingreses son los que se usaran para contactarte en caso de que seas el gananador. Por favor completar con datos reales.</p>
-            <p>Si ya te registraste anteriormente, con solo cargar tu DNI se mostrará tu información para que puedas confirmarla.</p>
+            <p>Si ya te registraste anteriormente, con solo cargar tu DNI se mostrará tu información para que puedas confirmarla o editarla.</p>
         </div>
         <div class="col-10">
             <div class="col-4">
@@ -101,7 +101,7 @@
             <br />
             <div class="form-check">
                 <asp:CheckBox ID="checkCondiciones" class="form-check-label" runat="server" />
-                <label for="checkCondiciones" class="form-check-label">Acepto los términos y condiones</label>
+                <label for="checkCondiciones" class="form-check-label">Acepto los términos y condiciones</label>
                 <div id="NombreHelp" class="form-text">
                     <asp:Label runat="server" ID="lblCondicionesError" CssClass="text-danger" Visible="false" Text="Debe aceptar los terminos y condiciones para participar" />
                 </div>
